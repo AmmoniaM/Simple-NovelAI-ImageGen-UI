@@ -85,6 +85,7 @@ def handle_and_send_image(zip_file_path):
             io.BytesIO(img.read()),
             mimetype='image/png',
             as_attachment=True,
+            download_name=new_filename,
         )
 
 @app.route('/latest-image')
