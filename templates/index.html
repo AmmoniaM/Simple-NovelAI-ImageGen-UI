@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AmmoniaM AmmoniaM</title>
+    <title>AmmoniaM's Shitty NAI UI</title>
     <style>
         #image-display {
             position: absolute;
@@ -38,7 +38,6 @@
 <div id = 'image-display'></div>
 
 <script>
-const refreshIntervalInMinutes = 1;
 
 async function fetchAndDisplayLatestImage() {
     let response = await fetch('/latest-image');
@@ -54,7 +53,8 @@ function submitForm () {
     var inputData=document.getElementById('input-text').value;var negativePrompt=document.getElementById('negative-prompt').value;var width=document.getElementById('width').value;var height=document.getElementById('height').value; var steps=document.getElementById('steps').value; var guidance=document.getElementById('guidance').value; var keyInput=document.getElementById('key').value;
 
     fetch( '/generate',{method:'POST',headers:{'Content-Type':'application/json'},body :JSON.stringify({ input : inputData , negative_prompt : negativePrompt,width : width,height : height,steps : steps,guidance_scale : guidance, key:keyInput }),}).then(response =>{if (!response.ok) {throw new Error(`HTTP error! Status:${response.status}`); } return response.blob();}).then(blob =>{
-    setTimeout(fetchAndDisplayLatestImage, refreshIntervalInMinutes * 60 * 1000);});
+
+     setTimeout(fetchAndDisplayLatestImage, 1000);});
 }
 
 fetchAndDisplayLatestImage();
